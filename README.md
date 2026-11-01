@@ -1,75 +1,62 @@
-# Hospital-Operations-Revenue-Dashboard
-A secure, doctor-personalised Power BI experience that turns raw appointment, treatment and billing records into decisions.
-# 🏥 Hospital Operations & Revenue Dashboard
+# Hospital Appointments & Revenue Dashboard
 
-> **A secure, doctor-personalised Power BI experience that turns raw appointment, treatment and billing records into decisions.**
+> **A Power BI dashboard with custom-designed visuals that turns appointment, patient and billing data into clear, actionable insights.**
 
 ![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
 ![DAX](https://img.shields.io/badge/DAX-HTML%20%2B%20CSS%20Visuals-0077B6)
 ![Security](https://img.shields.io/badge/Security-Row--Level%20Security-03045E)
 ![Model](https://img.shields.io/badge/Model-Star%20Schema-00B4D8)
-![Data](https://img.shields.io/badge/Data-2023%20%7C%20200%20appointments-90E0EF)
 
 ---
 
-##  TL;DR (Executive Summary)
+## (Executive Summary)
 
 | | |
 |---|---|
-| **What it is** | A 5-page Power BI report for a 3-branch hospital group, with doctor login and custom-designed visuals |
-| **Data** | 200 appointments · 50 patients · 10 doctors · 3 branches · 5 treatment types · 200 bills (all of 2023) |
-| **Core finding** | **Only 23% of appointments were completed** and **only 31.5% of billed revenue was actually paid** |
-| **Money at stake** | **551,250 billed → 173,425 collected.** About **377,825 is pending or failed** |
-| **Biggest operational issue** | **No-shows (26%) and cancellations (25.5%) take up more than half of all appointment slots** |
-| **Biggest quick win** | Fix the **3 PM overload** and reminder/payment follow-up. Both are cheap and fast to act on |
+| **What it is** | A hospital performance dashboard covering patients, appointments, visit reasons, timing and revenue |
+| **Scale** | **48 patients · 200 appointments · 551,250 billed** |
+| **Core finding** | **Only 23.0% of appointments were completed** (46 of 200) |
+| **Money at stake** | **173,425 collected out of 551,250 billed** (about 31.5%), leaving **377,825 outstanding** |
+| **Busiest time** | **April** (month) and **3 PM** (hour of day) |
+| **Main visit reasons** | Checkup (45), Consultation (43), Therapy (42), Follow-up (41), Emergency (29) |
 
 ---
 
-## 📖 The Story
+##  The Story
 
 **Chapter 1: The problem.**
-A hospital group runs three sites (Central Hospital, Eastside Clinic, Westside Clinic) with 10 doctors across Pediatrics, Dermatology and Oncology. Data sits in separate tables: appointments, treatments, billing, patients and doctors. Nobody can answer simple questions quickly:
+A hospital books hundreds of appointments a year, but its data is scattered, so management cannot quickly answer:
 
-- *Are we using our doctors' time well?*
-- *How many booked patients actually show up?*
-- *Are we getting paid for the work we do?*
-- *When are we overloaded, and when are we idle?*
+- *How many patients and appointments do we handle, and how many are actually completed?*
+- *How much revenue do we bill, and how much do we really collect?*
+- *When are we busiest, and when do we have spare capacity?*
+- *Why are patients coming to us?*
 
 **Chapter 2: The solution.**
-All tables are connected into one star-schema model, and a report is built on top of it. It opens on a welcome page, and each doctor "signs in" with their email to see **only their own patients, appointments and treatments**. A manager (admin) sees the whole hospital.
+One dashboard brings it all together. Four KPI cards give the big picture at a glance, and four visuals explain the details: **monthly demand, patient gender mix, hourly load, and top visit reasons**.
 
-**Chapter 3: What the data reveals.**
-The dashboard shows a hospital that is **busy but not productive**: lots of bookings, but fewer than 1 in 4 becomes a completed visit, and less than a third of the billed money is collected. The sections below explain where the leaks are.
+**Chapter 3: What the dashboard reveals.**
+The hospital is **busy but not converting**: 200 appointments were booked, but only 46 were completed, and less than a third of the billed amount has been collected. Demand is also uneven, peaking in spring and at 3 PM.
 
 **Chapter 4: What to do next.**
-Targeted actions: reminders, double-booking rules, payment follow-up, branch and doctor balancing. They are listed in the [Recommendations](#-recommendations) section, with priorities.
+Focus on completing more booked appointments, collecting outstanding revenue, and smoothing the schedule. The [Recommendations](#-recommendations) section lists the steps.
 
 ---
 
-## Business Problems This Project Solves
+##  Business Problems This Dashboard Solves
 
-| # | Business problem | How the dashboard solves it |
+| # | Business problem | How the dashboard helps |
 |---|---|---|
-| 1 | **No single view of hospital performance** | One KPI page: patients, appointments, completion rate, revenue billed vs. collected |
-| 2 | **Lost capacity from no-shows and cancellations** | Status tracking (Completed / Scheduled / Cancelled / No-show) by doctor, branch and visit reason |
-| 3 | **Revenue leakage** | Billed vs. collected, with payment status (Paid / Pending / Failed) and payment method |
-| 4 | **Overloaded and idle time slots** | "Appointments by hour" chart flags hours more than 25% above average |
-| 5 | **Uneven doctor workload** | Doctors page: workload, specialization, branch, experience |
-| 6 | **Patient privacy and role-based access** | Row-Level Security: each doctor sees only their own data via login email |
-| 7 | **Not knowing which services make money** | Treatments page: usage, revenue "podium", and price vs. demand |
-| 8 | **Seasonality and planning** | Monthly trend with peak-month callout (April) |
+| 1 | **No quick view of overall performance** | Four KPI cards: patients, appointments, completion rate, revenue billed vs. collected |
+| 2 | **Booked appointments that never get completed** | Completion rate KPI (23.0%, completed vs. total) |
+| 3 | **Billed revenue that is not collected** | Revenue card shows 551,250 billed against 173,425 collected |
+| 4 | **Overloaded and quiet time slots** | Hour-of-day chart highlights overloaded hours (more than 25% above average) |
+| 5 | **Unclear seasonality** | Monthly trend with a peak-month callout (April) |
+| 6 | **Not knowing why patients visit** | Top visit reasons ranked by number of appointments |
+| 7 | **No picture of the patient base** | Gender split of patients (62% male, 38% female) |
 
 ---
 
-##  Report Structure (5 Pages)
-
-| Page | Purpose | What it shows |
-|---|---|---|
-| **Welcome** | Entry and sign-in | Animated start page and the doctor email selector. Data stays locked until a doctor is chosen |
-| **Overview** | Hospital-wide health check | KPI cards, appointments by month, patients by gender, appointments by hour, top visit reasons |
-| **Doctors** | Workforce view | Doctor profile card: specialization, branch, experience, workload |
-| **Patients** | Patient and status board | Patient badges and appointment-status breakdown |
-| **Treatments** | Service and revenue view | Treatment usage, revenue podium, price vs. demand |
 
 ---
 
@@ -101,116 +88,105 @@ erDiagram
 
 ---
 
-## What Makes This Project Special
+##  What Makes This Project Special
 
--  **Fully custom visuals built with DAX + HTML/CSS.** The cards, charts and badges are generated by measures (for example `KPI Cards HTML`, `Busy Hours Chart HTML`, `Treatments Revenue Podium HTML`) and rendered through an HTML content visual. The result is a design far beyond default Power BI charts, with gradients, animations and a consistent ocean-blue theme (`Theme CSS`).
--  **Row-Level Security with a login experience.** A `doctor` role filters data with `LOWER(TRIM(dim_doctors[email])) = LOWER(USERPRINCIPALNAME())`. On the report, a "Sign in to continue" locked state appears until a doctor is selected, and a "Signed In As" label shows who is viewing. The `All doctors (admin)` view is available for the manager.
--  **Smart, self-explaining visuals.** Overloaded hours are highlighted automatically (25% above average), and the peak month and busiest hour are called out directly on the charts.
-- **Clean star-schema model** with a proper calendar table, ready to extend.
+- **Fully custom visuals built with DAX + HTML/CSS.** Cards, charts and bars are generated by measures instead of default Power BI visuals, giving a polished ocean-blue design with gradients and glow effects.
+- **Self-explaining visuals.** Overloaded hours are highlighted automatically with light bars, and the peak month and busiest hour appear as call-out badges.
+- **Row-Level Security with a doctor login experience** in the report file, so each doctor can see only their own data while an admin sees everything.
+- **Star-schema data model** with fact and dimension tables (appointments, patients, doctors, treatments, billing) and a calendar table.
+- **Multi-page report:** Welcome, Overview, Doctors, Patients and Treatments pages. The insights below come from the **Overview** dashboard.
 
 ---
 
-## Key Insights
+## Key Insights (from the Dashboard)
 
-### 1. Appointment outcomes: the biggest problem
+### 1. KPI cards: the big picture
 
-| Status | Appointments | Share |
+| KPI | Value | Note |
 |---|---|---|
-| Completed | 46 | **23.0%** |
-| No-show | 52 | 26.0% |
-| Cancelled | 51 | 25.5% |
-| Scheduled | 51 | 25.5% |
+| Patients | **48** | Unique patients |
+| Appointments | **200** | 46 completed |
+| Completion rate | **23.0%** | Completed vs. total |
+| Revenue billed | **551,250** | 173,425 collected |
 
-- **51.5% of all slots (103) were lost** to no-shows and cancellations.
-- Another 51 appointments (25.5%) are still marked "Scheduled" even though every appointment date falls in 2023. These are likely **stale statuses that were never updated**, which also drags the completion rate down.
-- **Consultation** has the weakest follow-through: only **4 of 43** were completed (about 9%). **Checkup** is the best at 16 of 45 (about 36%).
-- **Therapy** has the most no-shows (15), and **62% of Emergency** appointments (18 of 29) ended as cancelled or no-show, which is unusual for urgent care and worth investigating.
+- **Completion rate is low.** Only **46 of 200** appointments (23.0%) were completed, so about **3 out of 4** were not.
+- **Collection rate is about 31.5%.** Only 173,425 of 551,250 billed has been collected, leaving about **377,825 outstanding**.
+- **About 4 appointments per patient** (200 / 48), which suggests many returning patients.
+- **Average billed amount is about 2,756 per appointment** (551,250 / 200).
 
-### 2. Revenue: billed is not collected
+### 2. Appointments by month
 
-| Payment status | Bills | Amount | Share |
-|---|---|---|---|
-| Paid | 64 | 173,425 | **31.5%** |
-| Pending | 69 | 184,612 | 33.5% |
-| Failed | 67 | 193,213 | **35.1%** |
-| **Total billed** | 200 | **551,250** | 100% |
+| Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 20 | 14 | 19 | **25** | 19 | 18 | 16 | 15 | **11** | 14 | 17 | 12 |
 
-- **Failed payments are the largest bucket**, bigger than paid. This is a payment-process problem, not just slow customers.
-- **Cash has the highest failure rate (38%)**, versus 33% for insurance and 31% for credit card.
--  **Billing logic needs validation:** every appointment has a bill, including cancelled and no-show ones. Only about **124,100** of the billed amount sits on completed appointments. If cancelled and no-show visits should not be billed, reported revenue is overstated.
+- **Peak month is April (25 appointments)**, shown as a call-out on the chart.
+- **Lowest month is September (11 appointments)**, less than half of the April peak.
+- **Demand is front-loaded.** January to June has **115 appointments (57.5%)**, versus **85 (42.5%)** from July to December.
+- After April, volume declines steadily to September, with a small recovery in November (17) before dropping again in December (12).
 
-### 3. Time and seasonality
+### 3. Patients by gender
 
-- **Peak month:** April (25 appointments). **Lowest:** September (11).
-- **First half of the year carries 57.5%** of volume (115 vs. 85 appointments).
-- **3 PM is the only overloaded hour** (28 appointments, about 40% above the hourly average of 20), while **4 PM is the quietest** (15).
+- **62.0% male (31)** and **38.0% female (19)**, out of **50 total patients**.
+- Male patients are a clear majority. This may reflect the hospital's services, or it may be an outreach opportunity for female patients.
+- **Data check:** the gender chart counts **50** patients, while the Patients KPI shows **48**. This 2-patient gap should be reconciled.
 
-### 4. Doctors and branches
+### 4. Appointments by hour of day
 
-- **Workload is uneven:** Sarah Taylor handles **29** appointments (and the most revenue, about 82,700), while Robert Davis handles **13**, a 2.2x gap.
-- **Completion varies a lot by doctor:** from about **14%** (Sarah Taylor) to about **38%** (Robert Davis). Interestingly, the busiest doctor has the lowest completion rate.
-- **Central Hospital carries 42% of appointments** (84) and has the lowest completion rate (about 18%), versus about 26% at Eastside and 28% at Westside.
-- **Pediatrics** is the largest specialty (98 appointments, about 259,000 billed).
+| 8 AM | 9 AM | 10 AM | 11 AM | 12 PM | 1 PM | 2 PM | 3 PM | 4 PM | 5 PM |
+|---|---|---|---|---|---|---|---|---|---|
+| 21 | 17 | 19 | 18 | 21 | 20 | 20 | **28** | **15** | 21 |
 
-### 5. Treatments
+- **Busiest hour is 3 PM (28 appointments)**, about **40% above the hourly average of 20**. It is the **only overloaded hour** (the dashboard counts 1).
+- **4 PM is the quietest hour (15 appointments)**, right after the peak.
+- All other hours are fairly balanced at **17 to 21 appointments**.
 
-- **Chemotherapy** is the most used (49 treatments) and the top earner (about 128,900).
-- **MRI** has the highest average price (about 3,225) and ranks second in revenue, so it is high value per visit.
-- **ECG** is the lowest in revenue (about 96,200) and **Physiotherapy** is second lowest (about 99,400).
+### 5. Top visit reasons
 
-### 6. Patients
+| Reason | Appointments | Share |
+|---|---|---|
+| Checkup | 45 | 22.5% |
+| Consultation | 43 | 21.5% |
+| Therapy | 42 | 21.0% |
+| Follow-up | 41 | 20.5% |
+| Emergency | 29 | 14.5% |
 
-- **50 registered patients**, of which **48 booked** at least one appointment (2 have never booked).
-- **Average of about 4.2 appointments per patient**, which indicates a strong base of returning patients. One patient (P012) has 10 visits.
-- **62% male / 38% female.** Ages range from 21 to 76, with an average of about 46.
-- Insurance mix: MedCare Plus (18), WellnessCorp (16), PulseSecure (10), HealthIndia (6).
-
----
-
-## 💡 Recommendations
-
-### 🔴 Priority 1: Quick wins (0–30 days)
-
-1. **Launch automated reminders** (SMS/WhatsApp, 48h and 2h before). No-shows and cancellations are over half of all slots, so even a modest improvement recovers a large amount of capacity.
-2. **Clean up appointment statuses.** Close out the 51 stale "Scheduled" records so the completion rate reflects reality.
-3. **Chase failed and pending payments.** About **377,825** is uncollected. Start with the 67 failed payments (193,213) and retry them or contact patients.
-4. **Rebalance 3 PM.** Move or open slots at 4 PM and other quiet hours, and cap the 3 PM load.
-
-###  Priority 2: Process fixes (1–3 months)
-
-5. **Review the billing rules.** Decide whether cancelled and no-show appointments should generate bills. Consider a **no-show fee or deposit** for high-risk visit types such as Therapy.
-6. **Fix the Consultation and Emergency flows.** Find out why Consultation completes at about 9% and why most Emergency appointments end in cancellation or no-show (booking process, triage, or data entry?).
-7. **Review cash payments.** Their 38% failure rate is the highest, so encourage card or insurance payment at check-in.
-8. **Balance doctor workload.** Redistribute bookings from the busiest doctors to those with spare capacity, and investigate why Sarah Taylor has the lowest completion rate despite the highest volume.
-
-###  Priority 3: Strategic (3–12 months)
-
-9. **Plan staffing around seasonality.** Add capacity for the spring peak (Q2) and run campaigns in the slow months (September, December).
-10. **Promote high-value services.** Grow MRI and Chemotherapy capacity, and review pricing and promotion for ECG and Physiotherapy.
-11. **Investigate Central Hospital.** It has the highest volume and the lowest completion. Look at staffing, scheduling and process.
-12. **Improve patient retention.** Follow up with the 2 patients who never booked, and build loyalty for high-frequency patients.
+- **Demand is evenly spread.** The top four reasons are within 4 appointments of each other (41 to 45).
+- **Checkup** is the most common reason, followed closely by **Consultation**.
+- **Emergency is the least frequent (29, or 14.5%)**, but it still needs capacity kept in reserve.
+- **Follow-ups (41)** support the picture of returning patients.
 
 ---
 
-##  Data Quality Notes
+## Recommendations
 
-These are worth fixing before sharing results externally:
+### Priority 1: Quick wins
 
-- **Patient count mismatch:** the KPI card shows **48** (patients with appointments), while the gender chart shows **50** (all registered patients).
-- **Pediatrics vs. patient ages:** Pediatrics has the most appointments, yet no patient in the data is under 21. Check whether specialization labels or patient records are correct.
-- **Single year of data:** all appointments are from **2023**, so trends are not comparable across years.
-- **Table name typo:** `fact_apponitment` should be `fact_appointment`. Renaming is safer done early.
-- **Dimension tables hold transactional data:** `dim_treatments` and `dim_billing` have one row per appointment (1:1 with the fact table), so they behave more like fact tables. Consider remodelling if the project grows.
-- **Bi-directional filters** are used on the patient, treatment and billing relationships. This works, but can cause ambiguity as the model grows.
+1. **Raise the completion rate.** Only 23.0% of appointments are completed. Introduce automated reminders (SMS or WhatsApp) before each appointment and track why appointments are not completed.
+2. **Collect outstanding revenue.** About 377,825 of the 551,250 billed is uncollected. Set up a follow-up process for unpaid bills.
+3. **Rebalance the 3 PM peak.** Move some bookings to 4 PM (15 appointments), the quietest hour, to reduce overload and waiting time.
+
+### Priority 2: Planning
+
+4. **Staff for the spring peak.** April is the busiest month (25), so plan doctors and rooms for the first half of the year, when 57.5% of appointments happen.
+5. **Lift the slow months.** September (11) and December (12) are the quietest. Use campaigns, checkup packages or reminders to bring demand up.
+6. **Keep emergency capacity ready.** Emergency visits are 14.5% of volume (29), so reserve slots for them.
+
+###  Priority 3: Growth and data
+
+7. **Grow checkups and consultations.** They are the top two reasons, so package and promote them (for example, annual checkup plans).
+8. **Improve outreach to female patients.** They make up only 38% of patients.
+9. **Reconcile the patient count** (48 vs. 50) so all KPIs match.
+10. **Extend the dashboard** with an appointment-status breakdown (completed, cancelled, no-show) and payment status, so the causes behind the low completion and collection rates are visible.
 
 ---
 
 ## How to Use
 
 1. Open `hospital.pbix` in **Power BI Desktop**.
-2. Go to the **Welcome** page and select a **doctor email** to sign in, or leave the selection open for the admin view.
-3. Navigate with the page navigator: **Overview → Doctors → Patients → Treatments**.
-4. To enforce security in the Power BI Service, assign users to the **`doctor`** role and make sure each user's login email matches `dim_doctors[email]`.
+2. Start on the **Welcome** page and choose a doctor email, or use the admin view.
+3. Open the **Overview** page to see the KPIs and charts described above.
+4. Use the page navigator to explore the other pages.
 
 > **Note:** the HTML visuals require an **HTML Content** custom visual to be available in your Power BI environment.
 
@@ -222,14 +198,4 @@ These are worth fixing before sharing results externally:
 
 ---
 
-## Future Improvements
-
-- Add **no-show prediction** to flag high-risk appointments in advance
-- Add **multi-year data** for true year-over-year analysis
-- Add **wait-time and doctor-utilisation** metrics
-- Add a **collections aging** view (how long bills stay unpaid)
-- Add **drill-through** from branch to doctor to patient
-
----
-
-<p align="center"><i>Built to turn hospital data into faster, safer and more profitable decisions.</i></p>
+<p align="center"><i>Built to turn hospital data into faster, clearer and more profitable decisions.</i></p>
