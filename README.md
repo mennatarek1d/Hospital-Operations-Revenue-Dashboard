@@ -7,7 +7,9 @@
 ![Security](https://img.shields.io/badge/Security-Row--Level%20Security-03045E)
 ![Model](https://img.shields.io/badge/Model-Star%20Schema-00B4D8)
 
-![Dashboard demo](demo/video%20Project%205.gif)---
+![Dashboard demo](demo/video%20Project%205.gif)
+
+---
 
 ## (Executive Summary)
 
