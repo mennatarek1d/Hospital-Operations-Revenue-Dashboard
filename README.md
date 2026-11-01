@@ -9,7 +9,7 @@
 
 ---
 
-## 🎬 Demo
+## Demo
 
 ![Dashboard demo](demo/Video%20Project%205.gif)
 
