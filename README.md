@@ -7,7 +7,7 @@
 ![Security](https://img.shields.io/badge/Security-Row--Level%20Security-03045E)
 ![Model](https://img.shields.io/badge/Model-Star%20Schema-00B4D8)
 
-![Dashboard demo](Video Project 5.gif)
+![Dashboard demo]([Video Project 5.gif](https://github.com/mennatarek1d/Hospital-Operations-Revenue-Dashboard/blob/a2f43fcce6f25b5e0cfe2c2d61f02a4f7ba64156/Video%20Project%205.gif))
 ---
 
 ## (Executive Summary)
