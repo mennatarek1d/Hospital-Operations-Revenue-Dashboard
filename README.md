@@ -11,7 +11,7 @@
 
 ## 🎬 Demo
 
-![Dashboard demo](demo/video%20Project%205.gif)
+![Dashboard demo](demo/Video%20Project%205.gif)
 
 ---
 
